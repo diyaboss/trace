@@ -1,0 +1,10 @@
+{
+  "title": "Suspicious access to finance workstation",
+  "description": "Repeated access attempts were detected outside normal working hours.",
+  "severity": "CRITICAL",
+  "status": "OPEN",
+  "detected_at": "2026-10-08T03:40:00.000Z",
+  "resolved_at": null,
+  "employee_id": 7,
+  "threat_actor_id": null
+}

@@ -1,0 +1,15 @@
+{
+  "incident_id": 101,
+  "title": "Suspicious access to finance workstation",
+  "description": "Repeated access attempts were detected outside normal working hours.",
+  "severity": "CRITICAL",
+  "status": "OPEN",
+  "detected_at": "2026-10-08T03:40:00.000Z",
+  "resolved_at": null,
+  "employee_id": 7,
+  "reporter_name": "Aditi Rao",
+  "department_id": 2,
+  "department_name": "Finance",
+  "threat_actor_id": null,
+  "threat_actor_name": null
+}

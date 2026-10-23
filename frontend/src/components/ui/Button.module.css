@@ -1,0 +1,140 @@
+/* Pill buttons with uppercase micro-type, after noth.in's "BOOK A CALL →". */
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: var(--control-height);
+  padding: 0 22px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 550;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  transition:
+    background-color var(--duration-hover) var(--ease),
+    border-color var(--duration-hover) var(--ease),
+    color var(--duration-hover) var(--ease),
+    transform var(--duration-press) var(--ease);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.button:disabled {
+  opacity: 0.4;
+}
+
+.button svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  transition: transform var(--duration-hover) var(--ease);
+}
+
+/* Trailing arrows nudge forward on hover. */
+.button:hover:not(:disabled) svg:last-child:not(:first-child) {
+  transform: translateX(3px);
+}
+
+.primary {
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+.primary:hover:not(:disabled) {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.secondary {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.secondary:hover:not(:disabled) {
+  border-color: var(--color-text);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  padding: 0 14px;
+}
+
+.ghost:hover:not(:disabled) {
+  color: var(--color-text);
+}
+
+.danger {
+  background: var(--color-critical);
+  color: #fff;
+}
+
+.danger:hover:not(:disabled) {
+  background: transparent;
+  color: var(--color-critical);
+  border-color: var(--color-critical);
+}
+
+.spinner {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  border-right-color: transparent;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.iconButton {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-text-secondary);
+  transition:
+    border-color var(--duration-hover) var(--ease),
+    color var(--duration-hover) var(--ease);
+}
+
+.iconButton svg {
+  width: 17px;
+  height: 17px;
+}
+
+.iconButton:hover:not(:disabled) {
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.iconDanger:hover:not(:disabled) {
+  color: var(--color-critical);
+  border-color: var(--color-critical);
+}
+
+.iconButton:disabled {
+  opacity: 0.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 1.6s;
+  }
+}

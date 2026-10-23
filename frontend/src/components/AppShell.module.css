@@ -1,0 +1,57 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+}
+
+.skip {
+  position: absolute;
+  left: var(--gutter);
+  top: -60px;
+  z-index: 100;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.skip:focus {
+  top: 60px;
+}
+
+/* Corner note in the noth.in "( COOKIES )" style: top centre on desktop, bottom-left on phones. */
+.fixtures {
+  position: fixed;
+  left: 50%;
+  top: 22px;
+  z-index: 20;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 200px);
+  text-align: center;
+  color: #fff;
+  mix-blend-mode: difference;
+  opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+  .fixtures {
+    top: auto;
+    bottom: 16px;
+    left: var(--gutter);
+    transform: none;
+    text-align: left;
+    max-width: calc(100vw - 120px);
+  }
+  .fixturesMore {
+    display: none;
+  }
+}

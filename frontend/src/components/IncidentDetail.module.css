@@ -1,0 +1,129 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--space-8) var(--space-16);
+}
+
+/* Editorial grid: a mono label in the left column, content to the right. */
+.section {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: var(--space-6);
+  padding: var(--space-8) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section:last-child {
+  border-bottom: 0;
+}
+
+.sectionTitle {
+  padding-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.sectionTitle::before {
+  content: "( ";
+}
+
+.sectionTitle::after {
+  content: " )";
+}
+
+.description p {
+  font-size: 19px;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 60ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+  margin: 0;
+}
+
+.property {
+  min-width: 0;
+}
+
+.property dt {
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.property dd {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.id {
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+}
+
+.empty {
+  color: var(--color-text-muted);
+  font-weight: 450;
+}
+
+/* Values changed by the last save flash briefly. */
+[data-changed] {
+  animation: changed 2s var(--ease);
+}
+
+@keyframes changed {
+  0%,
+  35% {
+    background: var(--color-text);
+    color: var(--color-bg);
+    box-shadow: 0 0 0 6px var(--color-text);
+  }
+  100% {
+    background: transparent;
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+
+@media (max-width: 720px) {
+  .detail {
+    padding: 0 20px var(--space-12);
+  }
+  .section {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-6) 0;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-changed] {
+    animation: none;
+    box-shadow: inset 3px 0 0 var(--color-electric);
+    padding-left: 8px;
+  }
+}

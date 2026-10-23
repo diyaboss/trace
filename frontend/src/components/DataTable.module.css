@@ -1,0 +1,162 @@
+.scroller {
+  overflow-x: auto;
+  border-top: 1px solid var(--color-text);
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--text-table);
+}
+
+.table th {
+  height: 48px;
+  padding: 0 var(--space-3);
+  text-align: left;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+  background: var(--color-bg);
+}
+
+.table th:first-child,
+.table td:first-child {
+  padding-left: 0;
+}
+
+.headLabel {
+  padding: 0;
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  transition: color var(--duration-hover) var(--ease);
+}
+
+.sortButton:hover,
+.sortButton[data-active] {
+  color: var(--color-text);
+}
+
+.sortIcon {
+  width: 12px;
+  height: 12px;
+  opacity: 0.5;
+}
+
+.sortButton[data-active] .sortIcon {
+  opacity: 1;
+}
+
+.table td {
+  height: 64px;
+  padding: 8px var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+  background: var(--color-bg);
+  transition:
+    background-color var(--duration-hover) var(--ease),
+    opacity 400ms var(--ease);
+}
+
+.row {
+  cursor: pointer;
+}
+
+/* Hovering one row quiets the rest, as in noth.in's works index. */
+.table tbody:hover .row:not(:hover) td {
+  opacity: 0.5;
+}
+
+.row:hover td a,
+.row:focus-within td a {
+  transform: translateX(6px);
+}
+
+.row[data-selected] td {
+  opacity: 1 !important;
+}
+
+.row[data-selected] td:first-child {
+  box-shadow: inset 3px 0 0 var(--color-electric);
+  padding-left: var(--space-3);
+}
+
+.row[data-removing] {
+  animation: row-out 170ms var(--ease) forwards;
+  pointer-events: none;
+}
+
+@keyframes row-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.sticky {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.actionsHead {
+  width: 104px;
+}
+
+.actionsCell {
+  text-align: right;
+  white-space: nowrap;
+  padding-right: 0 !important;
+}
+
+/* Row actions appear on hover or keyboard focus; always visible on touch layouts. */
+.actionsCell > * {
+  opacity: 0;
+  transition: opacity var(--duration-hover) var(--ease);
+}
+
+.row:hover .actionsCell > *,
+.row:focus-within .actionsCell > *,
+.row[data-selected] .actionsCell > * {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .actionsCell > * {
+    opacity: 1;
+  }
+  .table tbody:hover .row:not(:hover) td {
+    opacity: 1;
+  }
+}
+
+.skeletonRow td {
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row[data-removing] {
+    animation: none;
+    opacity: 0.4;
+  }
+  .row:hover td a,
+  .row:focus-within td a {
+    transform: none;
+  }
+}

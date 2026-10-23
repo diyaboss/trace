@@ -1,0 +1,11 @@
+{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Please correct the highlighted fields.",
+    "field_errors": {
+      "title": "Enter a title.",
+      "resolved_at": "Resolution time cannot be earlier than detection time."
+    },
+    "details": {}
+  }
+}

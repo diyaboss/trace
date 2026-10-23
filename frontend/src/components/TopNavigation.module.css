@@ -1,0 +1,115 @@
+/* The header itself is static so each fixed corner blends with the page below it. */
+.header {
+  display: contents;
+}
+
+.brand,
+.nav {
+  position: fixed;
+  top: 18px;
+  z-index: 20;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+.brand {
+  left: var(--gutter);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  padding: 2px 4px 2px 0;
+}
+
+.apostrophe {
+  margin-left: 1px;
+}
+
+.nav {
+  right: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.link {
+  position: relative;
+  padding: 1px 0;
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  transition: opacity var(--duration-hover) var(--ease);
+}
+
+.nav:hover .link:not(:hover) {
+  opacity: 0.45;
+}
+
+/* Current page: a small square marker to the left. */
+.link[aria-current='page']::before {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  background: currentColor;
+}
+
+/* Round floating action, like noth.in's "ASK". */
+.create {
+  position: fixed;
+  right: var(--gutter);
+  bottom: var(--gutter);
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 4px;
+  width: 92px;
+  height: 92px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  font-size: 10.5px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: 0 8px 30px rgb(0 0 0 / 0.35), 0 0 0 1px rgb(0 0 0 / 0.08);
+  transition:
+    transform 500ms var(--ease),
+    background-color var(--duration-hover) var(--ease);
+}
+
+.create svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 500ms var(--ease);
+}
+
+.create:hover {
+  transform: scale(1.06) rotate(-4deg);
+}
+
+.create:hover svg {
+  transform: rotate(90deg);
+}
+
+.create:focus-visible {
+  box-shadow: 0 0 0 3px #000, 0 0 0 5px #fff;
+}
+
+@media (max-width: 640px) {
+  .create {
+    width: 72px;
+    height: 72px;
+    font-size: 9.5px;
+  }
+}

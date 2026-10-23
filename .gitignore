@@ -1,0 +1,24 @@
+# Build output and dependencies (recreated by mvn package / npm ci / npm run build)
+backend/target/
+frontend/dist/
+frontend/node_modules/
+frontend/test-results/
+frontend/playwright-report/
+frontend/node_modules/.tmp/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Local tooling and editors
+.claude/
+.idea/
+.vscode/
+*.log
+
+# Not part of this project
+anxiety_video_project/
+
+# Stray scratch files, not part of Trace
+backend/src/main/java/edu/project/trace/Untitled-*.txt

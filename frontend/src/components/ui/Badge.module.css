@@ -1,0 +1,44 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.mark {
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+}
+
+.severity[data-level='critical'] {
+  color: var(--color-critical);
+}
+.severity[data-level='high'] {
+  color: var(--color-high);
+}
+.severity[data-level='medium'] {
+  color: var(--color-medium);
+}
+.severity[data-level='low'] {
+  color: var(--color-low);
+}
+
+.status {
+  color: var(--color-text-secondary);
+  gap: 0;
+}
+
+.status[data-status='investigating'] {
+  color: var(--color-text);
+}
+
+.status[data-status='resolved'] {
+  color: var(--color-success);
+}

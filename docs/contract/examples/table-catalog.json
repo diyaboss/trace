@@ -1,0 +1,327 @@
+{
+  "data": [
+    {
+      "name": "INCIDENT",
+      "label": "Incidents",
+      "kind": "entity",
+      "primary_key": [
+        "incident_id"
+      ],
+      "can_create": true,
+      "can_update": true,
+      "can_delete": true,
+      "default_sort": "detected_at",
+      "default_order": "desc",
+      "columns": [
+        {
+          "key": "incident_id",
+          "label": "Incident ID",
+          "type": "integer",
+          "nullable": false,
+          "sortable": true,
+          "searchable": false,
+          "filter_operators": [
+            "eq"
+          ]
+        },
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text",
+          "nullable": false,
+          "sortable": true,
+          "searchable": true,
+          "filter_operators": []
+        },
+        {
+          "key": "description",
+          "label": "Description",
+          "type": "text",
+          "nullable": true,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": []
+        },
+        {
+          "key": "severity",
+          "label": "Severity",
+          "type": "enum",
+          "nullable": false,
+          "sortable": true,
+          "searchable": false,
+          "filter_operators": [
+            "eq",
+            "ne"
+          ],
+          "values": [
+            "LOW",
+            "MEDIUM",
+            "HIGH",
+            "CRITICAL"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "enum",
+          "nullable": false,
+          "sortable": true,
+          "searchable": false,
+          "filter_operators": [
+            "eq",
+            "ne"
+          ],
+          "values": [
+            "OPEN",
+            "INVESTIGATING",
+            "CONTAINED",
+            "RESOLVED"
+          ]
+        },
+        {
+          "key": "detected_at",
+          "label": "Detected at",
+          "type": "timestamp",
+          "nullable": false,
+          "sortable": true,
+          "searchable": false,
+          "filter_operators": [
+            "gte",
+            "lt"
+          ]
+        },
+        {
+          "key": "resolved_at",
+          "label": "Resolved at",
+          "type": "timestamp",
+          "nullable": true,
+          "sortable": true,
+          "searchable": false,
+          "filter_operators": [
+            "gte",
+            "lt"
+          ]
+        },
+        {
+          "key": "employee_id",
+          "label": "Reporter ID",
+          "type": "integer",
+          "nullable": false,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": [
+            "eq"
+          ]
+        },
+        {
+          "key": "reporter_name",
+          "label": "Reporter",
+          "type": "text",
+          "nullable": false,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": []
+        },
+        {
+          "key": "department_id",
+          "label": "Department ID",
+          "type": "integer",
+          "nullable": false,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": []
+        },
+        {
+          "key": "department_name",
+          "label": "Department",
+          "type": "text",
+          "nullable": false,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": []
+        },
+        {
+          "key": "threat_actor_id",
+          "label": "Threat actor ID",
+          "type": "integer",
+          "nullable": true,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": [
+            "eq"
+          ]
+        },
+        {
+          "key": "threat_actor_name",
+          "label": "Threat actor",
+          "type": "text",
+          "nullable": true,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": []
+        }
+      ]
+    },
+    {
+      "name": "DEPARTMENT",
+      "label": "Departments",
+      "kind": "entity",
+      "primary_key": [
+        "department_id"
+      ],
+      "can_create": false,
+      "can_update": false,
+      "can_delete": false,
+      "default_sort": "department_id",
+      "default_order": "asc",
+      "columns": [
+        {
+          "key": "department_id",
+          "label": "Department ID",
+          "type": "integer",
+          "nullable": false,
+          "sortable": true,
+          "searchable": false,
+          "filter_operators": [
+            "eq"
+          ]
+        },
+        {
+          "key": "department_name",
+          "label": "Department name",
+          "type": "text",
+          "nullable": false,
+          "sortable": true,
+          "searchable": true,
+          "filter_operators": []
+        }
+      ]
+    },
+    {
+      "name": "EMPLOYEE",
+      "label": "Employees",
+      "kind": "entity",
+      "primary_key": [
+        "employee_id"
+      ],
+      "can_create": false,
+      "can_update": false,
+      "can_delete": false,
+      "default_sort": "employee_id",
+      "default_order": "asc",
+      "columns": [
+        {
+          "key": "employee_id",
+          "label": "Employee ID",
+          "type": "integer",
+          "nullable": false,
+          "sortable": true,
+          "searchable": false,
+          "filter_operators": [
+            "eq"
+          ]
+        },
+        {
+          "key": "first_name",
+          "label": "First name",
+          "type": "text",
+          "nullable": false,
+          "sortable": true,
+          "searchable": true,
+          "filter_operators": []
+        },
+        {
+          "key": "last_name",
+          "label": "Last name",
+          "type": "text",
+          "nullable": false,
+          "sortable": true,
+          "searchable": true,
+          "filter_operators": []
+        },
+        {
+          "key": "email",
+          "label": "Email",
+          "type": "text",
+          "nullable": false,
+          "sortable": true,
+          "searchable": true,
+          "filter_operators": []
+        },
+        {
+          "key": "designation",
+          "label": "Designation",
+          "type": "text",
+          "nullable": true,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": []
+        },
+        {
+          "key": "department_id",
+          "label": "Department ID",
+          "type": "integer",
+          "nullable": false,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": [
+            "eq"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "THREAT_ACTOR",
+      "label": "Threat actors",
+      "kind": "entity",
+      "primary_key": [
+        "threat_actor_id"
+      ],
+      "can_create": false,
+      "can_update": false,
+      "can_delete": false,
+      "default_sort": "threat_actor_id",
+      "default_order": "asc",
+      "columns": [
+        {
+          "key": "threat_actor_id",
+          "label": "Threat actor ID",
+          "type": "integer",
+          "nullable": false,
+          "sortable": true,
+          "searchable": false,
+          "filter_operators": [
+            "eq"
+          ]
+        },
+        {
+          "key": "actor_name",
+          "label": "Actor name",
+          "type": "text",
+          "nullable": false,
+          "sortable": true,
+          "searchable": true,
+          "filter_operators": []
+        },
+        {
+          "key": "actor_type",
+          "label": "Actor type",
+          "type": "text",
+          "nullable": true,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": []
+        },
+        {
+          "key": "suspected_origin",
+          "label": "Suspected origin",
+          "type": "text",
+          "nullable": true,
+          "sortable": false,
+          "searchable": false,
+          "filter_operators": []
+        }
+      ]
+    }
+  ]
+}

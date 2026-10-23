@@ -1,0 +1,33 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Paper panel on the ink canvas (the .paper class is applied in Popover.tsx). */
+.panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  z-index: 30;
+  min-width: 280px;
+  padding: var(--space-6);
+  box-shadow: var(--shadow-elevated);
+}
+
+.panel[data-align='start'] {
+  left: 0;
+}
+
+.panel[data-align='end'] {
+  right: 0;
+}
+
+@media (max-width: 520px) {
+  .panel {
+    position: fixed;
+    top: auto;
+    left: var(--space-3) !important;
+    right: var(--space-3) !important;
+    bottom: var(--space-3);
+    z-index: 35;
+  }
+}

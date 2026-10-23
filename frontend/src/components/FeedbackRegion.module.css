@@ -1,0 +1,77 @@
+.stack {
+  position: fixed;
+  left: 50%;
+  bottom: var(--gutter);
+  z-index: 80;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: min(520px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+/* Inverse pill: paper on ink. The .paper class re-themes semantic colors. */
+.notice {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 52px;
+  padding: 8px 8px 8px 20px;
+  border-radius: 28px;
+  box-shadow: 0 16px 50px rgb(0 0 0 / 0.45);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.notice p {
+  flex: 1;
+}
+
+.icon {
+  flex: none;
+  width: 17px;
+  height: 17px;
+}
+
+.notice[data-tone='success'] .icon {
+  color: var(--color-success);
+}
+.notice[data-tone='info'] .icon {
+  color: var(--color-text);
+}
+.notice[data-tone='error'] .icon {
+  color: var(--color-critical);
+}
+
+.dismiss {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.dismiss:hover {
+  background: var(--color-hover);
+  color: var(--color-text);
+}
+
+.dismiss svg {
+  width: 15px;
+  height: 15px;
+}
+
+@media (max-width: 640px) {
+  .stack {
+    bottom: auto;
+    top: 64px;
+  }
+}

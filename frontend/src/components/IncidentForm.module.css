@@ -1,0 +1,270 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-8) var(--space-12);
+  flex: 1;
+}
+
+.formError {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-4) 0 0;
+  border-top: 2px solid var(--color-critical);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.formError svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: var(--color-critical);
+}
+
+.titleInput {
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.segmentGroup {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.required {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+/* Radios as a row of pills. */
+.segments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.segments[data-invalid] .segment > span {
+  border-color: var(--color-critical);
+}
+
+.segment {
+  position: relative;
+  display: block;
+}
+
+.segment input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.segment > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-hover) var(--ease),
+    border-color var(--duration-hover) var(--ease),
+    color var(--duration-hover) var(--ease);
+}
+
+.segment:hover > span {
+  border-color: var(--color-text);
+}
+
+.segment input:checked + span {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+.segment input:focus-visible + span {
+  box-shadow: var(--focus-ring);
+}
+
+.segmentDot {
+  width: 7px;
+  height: 7px;
+  background: var(--color-text-muted);
+}
+
+.segment[data-tone='critical'] .segmentDot {
+  background: var(--color-critical);
+}
+.segment[data-tone='high'] .segmentDot {
+  background: var(--color-high);
+}
+.segment[data-tone='medium'] .segmentDot {
+  background: var(--color-medium);
+}
+.segment[data-tone='low'] .segmentDot {
+  background: var(--color-low);
+}
+
+.segment input:checked + span .segmentDot {
+  outline: 1.5px solid var(--color-bg);
+}
+
+.inlineError {
+  font-size: 13px;
+  color: var(--color-critical);
+}
+
+.more {
+  border-top: 1px solid var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.moreToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--space-3);
+  min-height: 64px;
+  padding: var(--space-3) 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.moreToggle > span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.moreTitle {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.moreSummary {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.moreChevron {
+  width: 20px;
+  height: 20px;
+  transition: transform 400ms var(--ease);
+}
+
+.moreChevron[data-open] {
+  transform: rotate(180deg);
+}
+
+.moreBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-2) 0 var(--space-8);
+}
+
+.resolveNote {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* Sticky footer in inverse: black band on the paper drawer. */
+.footer {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-8);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-text);
+}
+
+.footerActions {
+  display: flex;
+  gap: var(--space-2);
+  margin-left: auto;
+}
+
+.shortcut {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.shortcut kbd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 6px;
+  border: 1px solid var(--color-border);
+}
+
+@media (max-width: 640px) {
+  .body {
+    padding: var(--space-6) 20px var(--space-8);
+    gap: var(--space-6);
+  }
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .footer {
+    padding: var(--space-3) 20px;
+  }
+  .shortcut {
+    display: none;
+  }
+  .footerActions > * {
+    flex: 1;
+  }
+  .footerActions {
+    width: 100%;
+  }
+}

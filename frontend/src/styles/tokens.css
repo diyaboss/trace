@@ -1,0 +1,112 @@
+/*
+ * Design tokens — monochrome editorial system (after noth.in).
+ * Two surfaces share one vocabulary:
+ *   :root   → "ink"   (black canvas; the app's default)
+ *   .paper  → "paper" (white; hero, drawer, dialogs)
+ * Components only read tokens, so anything placed on a .paper surface re-themes itself.
+ */
+:root {
+  --color-bg: #000;
+  --color-surface: #000;
+  --color-raised: #0c0c0c;
+  --color-hover: rgb(255 255 255 / 0.05);
+  --color-border: rgb(255 255 255 / 0.16);
+  --color-control-border: rgb(255 255 255 / 0.42);
+
+  --color-text: #fff;
+  --color-text-secondary: rgb(255 255 255 / 0.68);
+  --color-text-muted: rgb(255 255 255 / 0.5);
+
+  /* "Accent" is the inverse of the surface: white on ink, black on paper. */
+  --color-accent: #fff;
+  --color-accent-text: #000;
+  --color-accent-tint: rgb(255 255 255 / 0.08);
+  --color-accent-border: rgb(255 255 255 / 0.5);
+  /* One electric note, used sparingly (selection marker, active sort). */
+  --color-electric: #6f7bff;
+
+  /* Semantic — meaning only, always paired with text */
+  --color-critical: #ff5c63;
+  --color-high: #ff9d47;
+  --color-medium: #f2d24b;
+  --color-low: rgb(255 255 255 / 0.55);
+  --color-success: #4cd98a;
+  --color-critical-tint: rgb(255 92 99 / 0.12);
+
+  --font-sans: 'Inter Tight Variable', 'Inter Tight', system-ui, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --text-display: clamp(64px, 22vw, 400px);
+  --text-hero: clamp(40px, 5vw, 72px);
+  --text-screen: clamp(40px, 5vw, 72px);
+  --text-drawer: clamp(28px, 3vw, 40px);
+  --text-section: 22px;
+  --text-body: 15px;
+  --text-table: 15px;
+  --text-meta: 11px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  --radius-control: 0;
+  --radius-card: 0;
+  --radius-menu: 0;
+  --radius-drawer: 0;
+  --radius-pill: 999px;
+
+  --control-height: 44px;
+  --gutter: 20px;
+  --content-width: 100%;
+
+  --shadow-elevated: 0 24px 80px rgb(0 0 0 / 0.5);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-hover: 300ms;
+  --duration-press: 90ms;
+
+  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-text);
+}
+
+.paper {
+  --color-bg: #fff;
+  --color-surface: #fff;
+  --color-raised: #f4f4f2;
+  --color-hover: rgb(0 0 0 / 0.04);
+  --color-border: rgb(0 0 0 / 0.14);
+  --color-control-border: rgb(0 0 0 / 0.5);
+
+  --color-text: #000;
+  --color-text-secondary: rgb(0 0 0 / 0.68);
+  --color-text-muted: rgb(0 0 0 / 0.56);
+
+  --color-accent: #000;
+  --color-accent-text: #fff;
+  --color-accent-tint: rgb(0 0 0 / 0.06);
+  --color-accent-border: rgb(0 0 0 / 0.5);
+  --color-electric: #3341e8;
+
+  --color-critical: #d1242f;
+  --color-high: #b85600;
+  --color-medium: #8a6a00;
+  --color-low: rgb(0 0 0 / 0.55);
+  --color-success: #12804a;
+  --color-critical-tint: rgb(209 36 47 / 0.08);
+
+  --shadow-elevated: 0 24px 80px rgb(0 0 0 / 0.35);
+
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 24px;
+  }
+}
